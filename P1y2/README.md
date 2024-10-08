@@ -1,16 +1,15 @@
 # **PRÁCTICA 1&2**
 
-**Ejercicio 1**
-
+**Ejercicio 1**<br>
 **Pregunta: ¿Qué hace la sentencia pass?**
 
-  -> La sentencia pass sirve para escribir una estructura de código que debe estar, pero que no quieres implementar todavia para que el codigo funcione correctamente.<br>
+  -> La sentencia pass sirve para escribir una estructura de código que debe estar, pero que no quieres implementar todavia para que el codigo funcione correctamente.<br><br>
   
 
 **Ejercicio 2**<br>
 **Pregunta: ¿Para qué sirve la sentencia strip?**
 
-  -> La sentencia strip sirve para eliminar el caracter especificado, que se encuentre al principio y al final de una cadena. Muy conveniente para el procesado de entradas de datos o usuarios.<br>
+  -> La sentencia strip sirve para eliminar el caracter especificado, que se encuentre al principio y al final de una cadena. Muy conveniente para el procesado de entradas de datos o usuarios.<br><br>
 
 
 **Ejercicio 4**<br>
@@ -28,7 +27,7 @@
 
 **Pregunta: ¿Para qué sirve el método split?**
 
-  -> El método split se utiliza para dividir una cadena de texto en una lista de subcadenas utilizando un separador.<br>
+  -> El método split se utiliza para dividir una cadena de texto en una lista de subcadenas utilizando un separador.<br><br>
 
 **Ejercicio 5**<br>
 **Pregunta: ¿Para que sirven los metodos append y remove?**
