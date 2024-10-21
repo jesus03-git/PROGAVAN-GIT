@@ -31,19 +31,19 @@ class Time:
         self.format = "24 HOURS"
         Time.time_count += 1
 
-    def __assign_format(self, pszFormat):
+    def __assign_format(self, formato):
         """
         Asigna el formato proporcionado a la hora y lo valida.
 
         Args:
-            pszFormat (str): Formato de tiempo ("AM", "PM" o "24 HOURS").
+            formato (str): Formato de tiempo ("AM", "PM" o "24 HOURS").
 
         Returns:
             bool: True si el formato es válido, False en caso contrario.
         """
-        pszFormat = pszFormat.upper()
-        if pszFormat in Time.TIME_FORMATS:
-            self.format = pszFormat
+        formato = formato.upper()
+        if formato in Time.TIME_FORMATS:
+            self.format = formato
             return True
         return False
 
@@ -69,7 +69,7 @@ class Time:
             return 1 <= self.hours <= 12 and 0 <= self.minutes <= 59 and 0 <= self.seconds <= 59
         return False
 
-    def set_time(self, nHoras, nMinutos, nSegundos, pszFormato):
+    def set_time(self, nHoras, nMinutos, nSegundos, formatoo):
         """
         Asigna la hora, minutos, segundos y el formato proporcionados a la instancia Time.
 
@@ -77,12 +77,12 @@ class Time:
             nHoras (int): Horas (1 a 12 para AM/PM, 0 a 23 para formato de 24 horas).
             nMinutos (int): Minutos (0 a 59).
             nSegundos (int): Segundos (0 a 59).
-            pszFormato (str): Formato de tiempo ("AM", "PM" o "24 HOURS").
+            formatoo (str): Formato de tiempo ("AM", "PM" o "24 HOURS").
 
         Returns:
             bool: True si la hora se asignó correctamente, False en caso contrario.
         """
-        if self.__assign_format(pszFormato):
+        if self.__assign_format(formatoo):
             self.hours = nHoras
             self.minutes = nMinutos
             self.seconds = nSegundos
