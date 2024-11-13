@@ -47,7 +47,6 @@ def leer_int(mensaje="Introduce un número entero: "):
         except ValueError:
             print("Error: Por favor, introduce un número entero válido.")
 
-
 def leer_float(mensaje="Introduce un número decimal: "):
     while True:
         try:
