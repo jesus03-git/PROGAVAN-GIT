@@ -3,7 +3,7 @@
 **Pregunta 1: ¿Qué es una función lambda?**<br>
 ->La función lambda es una función anónima, una función que no tiene un nombre asociado. Se utiliza principalmente para operaciones pequeñas y de una sola línea.<br><br>
 **Pregunta 2: ¿Qué son los decoradores?**<br>
-->Los decoradores son una forma de modificar o extender el comportamiento de funciones o métodos sin tener que cambiar su código directamente.<br<<br>
+->Los decoradores son una forma de modificar o extender el comportamiento de funciones o métodos sin tener que cambiar su código directamente.<br><br>
 **Pregunta 3: ¿Por qué se utiliza un setter para el atributo prestado?**<br>
 ->El setter permite controlar cómo se asigna el valor a ese atributo, y su implementación en el código de la clase Book permite modificar el estado del libro entre "prestado" y "disponible".<br><br>
 **Pregunta 4: ¿Qué hace el decorador @property en la clase book?**<br>
