@@ -22,7 +22,6 @@ def leer_cadena(mensaje="Introduce un mensaje: ") -> str:
             return cadena
         print("Error: La cadena no puede estar vacía. Inténtalo de nuevo.")
 
-
 def crear_menu(opciones_menu: List[str]) -> int:
     while True:
         print("\nMenú:")
