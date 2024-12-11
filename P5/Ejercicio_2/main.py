@@ -22,11 +22,11 @@ def main():
             titulo = input("Ingrese el título del libro: ")
             autor = input("Ingrese el autor del libro: ")
             isbn = input("Ingrese el ISBN del libro: ")
-            biblioteca.add_book(Book(titulo, autor, isbn))
+            biblioteca.añadir(Book(titulo, autor, isbn))
 
         elif opcion == 2:
             isbn = input("Ingrese el ISBN del libro a eliminar: ")
-            biblioteca.remove_book(isbn)
+            biblioteca.quitar(isbn)
 
         elif opcion == 3:
             nombre = input("Ingrese el nombre del usuario: ")
