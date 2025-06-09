@@ -15,6 +15,13 @@ def leer_float(mensaje="Introduce un número decimal: ") -> float:
         except ValueError:
             print("Error: Por favor, introduce un número decimal válido.")
 
+def leer_cadena(mensaje="Introduce un mensaje: ") -> str:
+    while True:
+        cadena = input(mensaje).strip()
+        if cadena:
+            return cadena
+        print("Error: La cadena no puede estar vacía. Inténtalo de nuevo.")
+
 def crear_menu(opciones_menu: List[str]) -> int:
     while True:
         print("\nMenú:")

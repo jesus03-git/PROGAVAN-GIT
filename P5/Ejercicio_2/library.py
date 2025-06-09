@@ -24,7 +24,7 @@ class Library():
             if book.isbn == isbn:
                 if not book.prestado:
                     book.prestado = True
-                    printf(f"Libro '{book.titulo}' ha sido prestado.")
+                    print(f"Libro '{book.titulo}' ha sido prestado.")
                 else:
                     print(f"Libro '{book.titulo}' ya está prestado")
                 return

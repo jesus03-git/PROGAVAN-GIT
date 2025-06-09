@@ -1,32 +1,17 @@
-# **PRÁCTICA 5**
+# **Práctica 5**
 
-**Ejercicio 1**<br>
-**Pregunta: ¿Qué hace el decorador operation_logger y en qué momento se ejecuta?**
-
-  -> La sentencia pass sirve para escribir una estructura de código que debe estar, pero que no quieres implementar todavia para que el codigo funcione correctamente.<br><br>
-
-
-**Pregunta: ¿Para qué sirve la sentencia strip?**
-
-  -> La sentencia strip sirve para eliminar el caracter especificado, que se encuentre al principio y al final de una cadena. Muy conveniente para el procesado de entradas de datos o usuarios.<br><br>
-
-
-**Pregunta: **
-
-  -> La sentencia sum se utiliza para realizar la suma de los elementos de una lista y devolver el resultado, sin la necesidad de crear un bucle.<br>
-
-**Pregunta: ¿Cómo se obtiene el nombre de la operación que se está ejecutando dentro del decorador?**
-
-  -> Se accede al nombre de la función lambda a través de operation.__name__. Aunque las funciones lambda no tienen nombre explícito, Python internamente las llama '<lambda>', así que en este caso el resultado siempre será esa cadena. Si se quisieran nombres más amigables, podríamos pasar funciones normales o pasar manualmente un nombre.<br>
-
-**Pregunta: ¿Para qué sirve el método map?**
-
-  -> El método map se utiliza para aplicar una función a cada elemento de una lista, y devolverla con los resultados.<br>
-
-**Pregunta: ¿Para qué sirve el método split?**
-
-  -> El método split se utiliza para dividir una cadena de texto en una lista de subcadenas utilizando un separador.<br><br>
-
-**Pregunta: ¿Para que sirven los metodos append y remove?**
-
-  -> El metodo append sirve para agregar un elemento al final de una lista, y el remove para eliminar un elemento deseado, si este no se encuentra en la cadena, generará un error.
+**Pregunta 1: ¿Qué es una función lambda?**<br>
+->La función lambda es una función anónima, una función que no tiene un nombre asociado. Se utiliza principalmente para operaciones pequeñas y de una sola línea.<br><br>
+**Pregunta 2: ¿Qué son los decoradores?**<br>
+->Los decoradores son una forma de modificar o extender el comportamiento de funciones o métodos sin tener que cambiar su código directamente.<br><br>
+**Pregunta 3: ¿Por qué se utiliza un setter para el atributo prestado?**<br>
+->El setter permite controlar cómo se asigna el valor a ese atributo, y su implementación en el código de la clase Book permite modificar el estado del libro entre "prestado" y "disponible".<br><br>
+**Pregunta 4: ¿Qué hace el decorador @property en la clase book?**<br>
+->En la clase Book, el decorador @property se utiliza para definir propiedades para los atributos titulo, autor, isbn y prestado.<br><br>
+**Pregunta 5: ¿Por qué enla clase User, el atributo nombre tiene un setter y un getter, pero el atributo user_id solo tiene un getter?**<br>
+->Porque el nombre es un valor que podría cambiar en el transcurso del uso de la clase, mientras que el user_id es un identificador único que no debería modificarse una vez asignado.<br><br>
+**Pregunta 6: ¿Por qué el método añadir verifica si el objeto es una instancia de la clase Book antes de agregarlo a la lista books?**<br>
+->El método añadir verifica si el objeto pasado como parámetro es una instancia de la clase Book antes de agregarlo a la lista books.<br><br>
+**Pregunta 7: ¿Para qué se utiliza UUID?**<br>
+->se utiliza para crear identificadores que sean prácticamente únicos y no dependan de ninguna otra fuente de información.
+>>>>>>> 813f704f1ca142f8ea87aa9bb34d658c26c31e72
