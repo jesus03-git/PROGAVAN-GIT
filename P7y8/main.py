@@ -1,70 +1,59 @@
-from utils import leer_int, leer_cadena, crear_menu
+from publicacion import Libro, Revista
+from excepciones import ErrorBiblioteca, ErrorArchivo
+from utils import leer_cadena, leer_int, crear_menu, guardar_publicaciones, cargar_publicaciones
 
-class Publicacion:
-    def __init__(self, titulo = "", autor = "", anio = 0):
-        self._titulo = titulo
-        self._autor = autor
-        self._anio = anio
-        
-    @property
-    def titulo(self):
-        return self._titulo
-    
-    @property
-    def autor(self):
-        return self._autor
-    
-    @property
-    def anio(self):
-        return self._anio
-    
-    def Descripcion(self):
-        return f"Titulo: {self.titulo}, Autor: {self.autor}, Anio: {self.anio}"
-    
-class Libro(Publicacion):
-    def __init__(self, titulo = "", autor = "", anio = 0, genero = ""):
-        super().__init__(titulo, autor, anio)
-        self._genero = genero
-        
-    @property
-    def genero(self):
-        return self._genero
-    
-    def Descripcion(self):
-        base_info = super().Descripcion()
-        return f"{base_info}, Genero: {self.genero}"
-    
-class Revista(Publicacion):
-    def __init__(self, titulo = "", autor = "", anio = 0, num_edicion = 0):
-        super().__init__(titulo, autor, anio)
-        self._num_edicion = num_edicion
-    
-    @property
-    def num_edicion(self):
-        return self._num_edicion
-    
-    def Descripcion(self):
-        base_info = super().Descripcion()
-        return f"{base_info}, Numero Edicion: {self.num_edicion}"
-    
-def main():
-    while True:
-        opciones = [
-            "Anañdir publicaciones (libros o revistas)."
-            "Mostrar publicaciones disponibles."
-            "Guardar publicaciones en un fichero."
-            "Cargar publicaciones desde un fichero."
-            "Salir."
-        ]
-        
-        opcion = crear_menu(opciones)
-        if opcion == 1:
-            pass
-        
-        
-        elif opcion == 5:
-            print("Saliendo...")
-            break
+publicaciones = []
 
-if __name__ == "__main__":
-    main()
+while True:
+    opcion = crear_menu([
+        "Añadir publicaciones",
+        "Mostrar publicaciones",
+        "Guardar publicaciones en un fichero",
+        "Cargar publicaciones desde un fichero",
+        "Salir"
+    ])
+
+    if opcion == 1:
+        tipo = crear_menu(["Libro", "Revista"])
+        try:
+            titulo = leer_cadena("Título: ")
+            autor = leer_cadena("Autor: ")
+            anio = leer_int("Año de publicación: ")
+
+            if tipo == 1:
+                genero = leer_cadena("Género: ")
+                publicaciones.append(Libro(titulo, autor, anio, genero))
+            else:
+                edicion = leer_int("Número de edición: ")
+                publicaciones.append(Revista(titulo, autor, anio, edicion))
+
+            print("Publicación añadida correctamente.")
+        except (ValueError, ErrorBiblioteca) as e:
+            print(f"Error al añadir la publicación: {e}")
+
+    elif opcion == 2:
+        if publicaciones:
+            for pub in publicaciones:
+                print(pub.descripcion())
+        else:
+            print("No hay publicaciones registradas.")
+
+    elif opcion == 3:
+        ruta = leer_cadena("Nombre del fichero para guardar (ej. datos.json): ")
+        try:
+            guardar_publicaciones(ruta, publicaciones)
+            print("Publicaciones guardadas correctamente.")
+        except ErrorArchivo as e:
+            print(e)
+
+    elif opcion == 4:
+        ruta = leer_cadena("Nombre del fichero para cargar (ej. datos.json): ")
+        try:
+            publicaciones = cargar_publicaciones(ruta)
+            print("Publicaciones cargadas correctamente.")
+        except ErrorArchivo as e:
+            print(e)
+
+    elif opcion == 5:
+        print("Programa finalizado.")
+        break

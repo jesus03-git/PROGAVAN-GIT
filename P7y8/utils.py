@@ -1,6 +1,9 @@
 from typing import List, Dict
 import uuid
+import json
+from excepciones import ErrorArchivo
 
+# Funciones originales
 def leer_int(mensaje="Introduce un número entero: ") -> int:
     while True:
         try:
@@ -38,3 +41,28 @@ def crear_menu(opciones_menu: List[str]) -> int:
 def generar_id_unico() -> str:
     return str(uuid.uuid4())[:8]
 
+def guardar_publicaciones(ruta: str, publicaciones: list):
+    try:
+        with open(ruta, 'w', encoding='utf-8') as f:
+            json.dump([
+                {"tipo": p.__class__.__name__, **p.__dict__}
+                for p in publicaciones
+            ], f, indent=4)
+    except Exception as e:
+        raise ErrorArchivo(f"No se pudo guardar el archivo: {e}")
+
+def cargar_publicaciones(ruta: str) -> list:
+    from publicacion import Libro, Revista
+    try:
+        with open(ruta, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            publicaciones = []
+            for item in data:
+                tipo = item.pop("tipo", "")
+                if tipo == "Libro":
+                    publicaciones.append(Libro(**item))
+                elif tipo == "Revista":
+                    publicaciones.append(Revista(**item))
+            return publicaciones
+    except Exception as e:
+        raise ErrorArchivo(f"No se pudo cargar el archivo: {e}")
